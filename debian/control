@@ -1,0 +1,13 @@
+Source: turtlebot-rosistall-groovy
+Section: science
+Priority: extra
+Maintainer: I Heart Engineering <code@iheartengineering.com>
+Build-Depends: debhelper (>= 5), cdbs
+Standards-Version: 3.9.3
+
+Package: turtlebot-rosinstall-groovy
+Architecture: any
+Depends: ${misc:Depends}, python, daemontools, build-essential, python-rosdep, python-rosinstall, python-rospkg, wget
+Provides: turtlebot-rosinstall
+Description: ROS Groovy specific files for TurtleBot 2
+Conflicts: 

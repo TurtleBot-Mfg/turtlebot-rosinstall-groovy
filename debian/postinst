@@ -1,0 +1,16 @@
+#!/bin/bash
+
+case "$1" in
+    'configure')
+        cd /opt/turtlebot
+        rosws init
+        wget https://raw.github.com/turtlebot/turtlebot/master/turtlebot.rosinstall
+        rosws merge turtlebot.rosinstall
+        rosws update 
+        ;;
+
+    *)
+        ;;
+
+esac
+#DEBHELPER#
