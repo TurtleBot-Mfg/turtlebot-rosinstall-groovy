@@ -2,15 +2,22 @@
 
 case "$1" in
     'configure')
+        if ! getent passwd ros >/dev/null; then
+          adduser --disabled-password --quiet --system \
+            --home /opt/ros --no-create-home \
+            --gecos "Robot Operating System" --group ros
+          adduser --quiet ros dialout
+        fi
         cd /opt/turtlebot
         rosws init
         wget https://raw.github.com/turtlebot/turtlebot/master/turtlebot.rosinstall
         rosws merge turtlebot.rosinstall
-        rosws update 
-        ;;
+        rosws update
+	chown -R ros:ros /opt/turtlebot
+    ;;
 
     *)
-        ;;
+    ;;
 
 esac
 #DEBHELPER#
